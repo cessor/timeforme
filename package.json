@@ -1,6 +1,6 @@
 {
 	"name" : "node-example",
-	"version" : "1.0",
+	"version" : "v0.0.1",
 	"dependencies" : {
 		"express" : "2.2.0"
 	}
