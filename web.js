@@ -4,12 +4,12 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-	sendFile("index.html");
+	sendFile("index.html", response);
 });
 
-app.get('/960/:file', function(request, response) {
-	sendFile('960/' + request.params.file, response);
-});
+//app.get('/960/:file', function(request, response) {
+//	sendFile('960/' + request.params.file, response);
+//});
 
 var sendFile = function(filename, response) {
 	fs.readFile(filename,function(err, data) {  
