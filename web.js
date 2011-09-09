@@ -11,6 +11,10 @@ app.get('/960/:file', function(request, response) {
 	sendFile('960/' + request.params.file, response, "text/css");
 });
 
+app.get(/^([\w\/]+.css)$/, function(request, response) {
+	response.send(request.params);
+}); 
+
 var sendFile = function(filename, response, contentType) {
 	fs.readFile(filename,function(err, data) {  
             if(err) {  
