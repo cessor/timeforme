@@ -19,8 +19,7 @@ app.get(/^([\w\/]+.css)$/, function(request, response) {
 var sendFile = function(filename, response, contentType) {
 	fs.readFile(filename,function(err, data) {  
             if(err) {  
-				//response.send("Apologies, dumb programmer exception. ", {'Content-Type' : "text/html"}, 500);  
-                throw err;
+				response.send("Apologies, dumb programmer exception. " + err, {'Content-Type' : "text/html"}, 500);  
             }  
             response.send(data, {'Content-Type' : contentType}, 200);  
         }); 
