@@ -5,7 +5,7 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
 
-	var filename = "hello.txt";
+	var filename = "index.html";
 	
 	fs.readFile(filename,function(err, data) {  
             if(err) {  
