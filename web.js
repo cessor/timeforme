@@ -7,9 +7,9 @@ app.get('/', function(request, response) {
 	sendFile("index.html", response);
 });
 
-//app.get('/960/:file', function(request, response) {
-//	sendFile('960/' + request.params.file, response);
-//});
+app.get('/960/:file', function(request, response) {
+	sendFile('960/' + request.params.file, response);
+});
 
 var sendFile = function(filename, response) {
 	fs.readFile(filename,function(err, data) {  
