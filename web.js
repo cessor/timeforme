@@ -13,8 +13,8 @@ app.get('/', function(request, response) {
 });
 
 app.get(/^([\w\/]+.css)$/, function(request, response) {
-//	response.send(request.params);
-	response.send(request.params[0], response, "text/css");
+	response.send(request.params[0], "text/css");
+	//response.send(request.params[0], response, "text/css");
 }); 
 
 var sendFile = function(filename, response, contentType) {
