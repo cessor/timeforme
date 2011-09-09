@@ -9,15 +9,10 @@ app.get('/', function(request, response) {
 	
 	fs.readFile(filename,function(err, data) {  
             if(err) {  
-                response.sendHeader(500, {"Content-Type": "text/plain"});  
-                response.write(err + "\n");  
-                response.close();  
                 return;  
             }  
   
-            response.sendHeader(200);  
-            response.write(data, "text/html");  
-            response.close();  
+            response.send(data);  
         });  
 });
 
