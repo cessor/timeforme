@@ -4,20 +4,20 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-	sendFile("index.html", response);
+	sendFile("index.html", response, "text/html");
 });
 
 app.get('/960/:file', function(request, response) {
-	sendFile('960/' + request.params.file, response);
+	sendFile('960/' + request.params.file, response, "text/css");
 });
 
-var sendFile = function(filename, response) {
+var sendFile = function(filename, response, contentType) {
 	fs.readFile(filename,function(err, data) {  
             if(err) {  
 				response.send("Apologies, dumb programmer exception. ", {'Content-Type' : "text/html"}, 500);  
                 return;  
             }  
-            response.send(data, {'Content-Type' : "text/html"}, 200);  
+            response.send(data, {'Content-Type' : contentType}, 200);  
         }); 
 };
 
