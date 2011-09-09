@@ -3,16 +3,18 @@ var fs = require('fs');
 
 var app = express.createServer(express.logger());
 
+var allowedTypes = {
+	"css" : "text/css",
+	"html" : "text/html"
+};
+
 app.get('/', function(request, response) {
 	sendFile("index.html", response, "text/html");
 });
 
-app.get('/960/:file', function(request, response) {
-	sendFile('960/' + request.params.file, response, "text/css");
-});
-
 app.get(/^([\w\/]+.css)$/, function(request, response) {
-	response.send(request.params);
+//	response.send(request.params);
+	response.send(request.params[0], response, "text/css");
 }); 
 
 var sendFile = function(filename, response, contentType) {
