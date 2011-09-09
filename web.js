@@ -12,7 +12,7 @@ app.get('/', function(request, response) {
                 return;  
             }  
   
-            response.send(data);  
+            response.send(data, {'Content-Type' : "text/html"}, 200);  
         });  
 });
 
