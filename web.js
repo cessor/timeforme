@@ -13,7 +13,9 @@ app.configure(function () {
 	}));
 });
 
-app.get('/', function(request, response) { // default mapping to server static files });
+app.get('/', function(request, response) {
+	// default mapping to server static files
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port);
