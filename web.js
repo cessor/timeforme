@@ -15,7 +15,7 @@ app.configure(function () {
 });
 
 app.set('views', __dirname + '/views');
-app.set('view options', { layout: false });
+app.set('view options', { layout: true });
 
 app.get('/', function(request, response) {
 	response.render("root.jade");
