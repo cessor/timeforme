@@ -3,11 +3,9 @@ var express = require('express');
 var fs = require('fs');
 
 var app = express.createServer();
-app.set('views', __dirname + '/');
 
 app.configure(function () {
 	app.use(express.logger());
-	app.use(express.bodyParser());
 	app.use(express.static( __dirname + "/static"));
 	app.use(express.errorHandler({
 		dumpExceptions : true, 
@@ -15,12 +13,7 @@ app.configure(function () {
 	}));
 });
 
-app.set('views', __dirname + '/views');
-app.set('view options', { layout: false });
-
-app.get('/', function(request, response) {
-	//response.render("root.jade");
-});
+app.get('/', function(request, response) { // default mapping to server static files });
 
 var port = process.env.PORT || 3000;
 app.listen(port);
