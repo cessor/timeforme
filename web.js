@@ -6,12 +6,18 @@ app.set('views', __dirname + '/');
 
 aap.configure(function () {
 	app.use(express.logger());
-	app.use(express.staticProvider( __dirname + "/"));
+	app.use(express.staticProvider( __dirname + "/static"));
+	app.use(express.errorHandler({
+		dumpExceptions : true, 
+		showStack : true
+	}));
 })
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade')
 
-//app.get('/', function(request, response) {
-//	response.render("index.jade");
-//});
+app.get('/', function(request, response) {
+	response.render("root.jade");
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port);
