@@ -8,24 +8,15 @@ var allowedTypes = {
 	"html" : "text/html"
 };
 
-app.get('/', function(request, response) {
-	sendFile("index.html", response, "text/html");
+app.configure(function() {
+	
+	app.use(express.logger());
+	app.use(express.static("/"));
 });
 
-app.get(/^([\w\/]+.css)$/, function(request, response) {
-	sendFile(request.params[0], response, "text/css");
-}); 
-
-var sendFile = function(filename, response, contentType) {
-	fs.readFile(filename,function(err, data) {  
-            if(err) {  
-				response.send("Apologies, dumb programmer exception. " + err, {'Content-Type' : "text/html"}, 500);  
-            }  
-            response.send(data, {'Content-Type' : contentType}, 200);  
-        }); 
-};
+app.get('/', function(request, response) {
+	response.send("Hello, World!");
+});
 
 var port = process.env.PORT || 3000;
-app.listen(port, function() {
-	console.log("Listening on " + port);
-});
+app.listen(port);
