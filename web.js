@@ -8,14 +8,14 @@ var allowedTypes = {
 	"html" : "text/html"
 };
 
+app.set('views', __dirname + '/views');
+
 app.configure(function() {
-	
 	app.use(express.logger());
-	app.use(express.static("/"));
 });
 
 app.get('/', function(request, response) {
-	response.send("Hello, World!");
+	res.render("index.html");
 });
 
 var port = process.env.PORT || 3000;
