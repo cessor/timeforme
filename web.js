@@ -4,14 +4,15 @@ var fs = require('fs');
 var app = express.createServer();
 app.set('views', __dirname + '/');
 
-aap.configure(function () {
+app.configure(function () {
 	app.use(express.logger());
 	app.use(express.staticProvider( __dirname + "/static"));
 	app.use(express.errorHandler({
 		dumpExceptions : true, 
 		showStack : true
 	}));
-})
+});
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade')
 
