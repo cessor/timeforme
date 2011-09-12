@@ -5,7 +5,7 @@ var app = express.createServer(express.logger());
 app.set('views', __dirname + '/');
 
 app.get('/', function(request, response) {
-	response.render("index.html");
+	response.render("index.jade");
 });
 
 var port = process.env.PORT || 3000;
