@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 
 var app = express.createServer(express.logger());
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/');
 
 app.get('/', function(request, response) {
 	response.render("index.html");
