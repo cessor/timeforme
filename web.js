@@ -7,6 +7,7 @@ app.set('views', __dirname + '/');
 
 app.configure(function () {
 	app.use(express.logger());
+	app.use(express.bodyParser());
 	app.use(express.static( __dirname + "/static"));
 	app.use(express.errorHandler({
 		dumpExceptions : true, 
