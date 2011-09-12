@@ -19,7 +19,7 @@ app.set('views', __dirname + '/views');
 app.set('view options', { layout: false });
 
 app.get('/', function(request, response) {
-	response.render("root.jade");
+	//response.render("root.jade");
 });
 
 var port = process.env.PORT || 3000;
