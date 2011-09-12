@@ -16,7 +16,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade')
 
 app.get('/', function(request, response) {
-	response.render("root.jade");
+	response.render("root");
 });
 
 var port = process.env.PORT || 3000;
