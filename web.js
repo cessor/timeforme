@@ -5,8 +5,7 @@ var fs = require('fs');
 var app = express.createServer();
 
 app.configure(function () {
-	app.use(express.logger());
-	app.use(express.static( __dirname + "/"));
+	app.use(express.static( __dirname + "/ "));
 	app.use(express.errorHandler({
 		dumpExceptions : true, 
 		showStack : true
@@ -14,7 +13,7 @@ app.configure(function () {
 });
 
 app.get('/', function(request, response) {
-	// default mapping to server static files
+	// default mapping to serve static files
 });
 
 var port = process.env.PORT || 3000;
