@@ -15,7 +15,7 @@ body {
 #top, #middle, #bottom { }
 
 #top {
-	
+	border-bottom: 2px solid #05c;
 }
 
 #middle {
@@ -23,7 +23,7 @@ body {
 }
 
 #bottom {
-	
+	border-top: 2px solid #05c;
 }
 
 .space {
@@ -54,10 +54,12 @@ h1 {
 }
 		
 h2 {
-	font-size: 24px;
+	font-size: 32px;
+	color: #05c;
 	margin: 0;
 	padding: 0;
-	display: inline-block;
+	display: block;
+	text-align: center;
 }
 
 .subtext {
@@ -92,8 +94,7 @@ h2 {
   background-color: #05c;
   font-weight: bold;
   color: #fff;
-  margin: 0;
-  padding: 8px 16px;
+  padding: 4px;
   text-decoration: none;
   font-size: 20px;
 }
