@@ -14,10 +14,9 @@ app.configure(function () {
 });
 
 app.set('views', __dirname + '/views');
-app.set('view engine', 'jade')
 
 app.get('/', function(request, response) {
-	response.render("root");
+	response.render("root.jade");
 });
 
 var port = process.env.PORT || 3000;
