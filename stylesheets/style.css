@@ -1,34 +1,50 @@
 body, * {
 	font-family:  "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-	color: #445;
+	
 	font-size: 24px;
 }
 
 body {
-	background-color: #445;
+	color: #445;
+	background-color: white;
 }
 
-/* #05C #445 #f7f7f7 */
+/* #05C #445 #f7f7f7 #000*/
 
-#headline {
-	background-color: #000;
+/* Layout */
+#top, #middle, #bottom { }
+
+#top {
+	
 }
-		
+
+#middle {
+	background-color: #white;
+}
+
+#bottom {
+	
+}
+
 .space {
 	height: 40px;
+}
+
+#headline {
+	background-color: #f7f7f7;
+	color: #445;
 }
 
 #menu {
 	text-align: right;
 }
 	
-#main, #main * {
-	background-color: #f7f7f7;		
-}
-	
 #footer {
+	color: #445;
 	background-color: #f7f7f7;
 }
+
+
 
 h1 {
 	margin: 0;
