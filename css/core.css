@@ -1,102 +1,71 @@
-body, * {
-	font-family:  "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
-	
-	font-size: 24px;
-}
-
 body {
-	color: #445;
-	background-color: white;
-}
-
-/* #05C #445 #f7f7f7 #000*/
-
-/* Layout */
-#top, #middle, #bottom { }
-
-#top {
-	border-bottom: 2px solid #05c;
-}
-
-#middle {
-	background-color: #white;
-}
-
-#bottom {
-	border-top: 2px solid #05c;
-}
-
-.space {
-	height: 40px;
-}
-
-#headline {
-	background-color: #f7f7f7;
-	color: #445;
-}
-
-#menu {
-	text-align: right;
-}
-	
-#footer {
-	color: #445;
-	background-color: #f7f7f7;
-}
-
-h1 {
-	margin: 0;
-	padding: 0;
-	font-size: 42px;
-	font-weight: bolder;
-}
-		
-h2 {
-	font-size: 32px;
-	color: #05c;
-	margin: 0;
-	padding: 0;
-	display: block;
-	text-align: center;
-}
-
-.subtext {
-	display: block;
-	font-style: italic;
-	font-family: Cambria, serif;
-}
-
-.name {
-	font-style: italic;
-	font-family: Cambria, serif;
-}
-		
-.textshadow {
-  filter: dropshadow(color=#000, offx=1px, offy=1px);
-  text-shadow: 0 2px 1px #333333;
-}
-
-.boxshadow {
-  -webkit-box-shadow: 1px, 1px, 3px, 0, #333;
-  -moz-box-shadow: 1px, 1px, 3px, 0, #333;
-  box-shadow: 1px, 1px, 3px, 0, #333;
-}
-
-.roundedcorners {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-}
-
-.button {
-  background-color: #05c;
-  font-weight: bold;
-  color: #fff;
-  padding: 4px;
-  text-decoration: none;
-  font-size: 20px;
+	background-color:#fff;
+	color:#445;
+	font-family:"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif;
+  font-size:x-large;
 }
 
 a {
-	color: #05c;
+  color:#05c;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+a:focus,a:hover {
+  text-decoration:underline;
+}
+
+#menu {
+  background-color:#f7f7f7;
+  padding:21px 0;
+	text-align: right;
+}
+	
+#header {
+  background-color:#f7f7f7;
+	border-bottom:solid 2px #05c;
+  padding:21px 0;
+}
+
+#header h1 {
+	font-size:200%;
+	font-weight:bolder;
+}
+		
+#content {
+  padding:21px 0;
+}
+
+#content h2 {
+  color:#ccd;
+	font-size:150%;
+  font-style:italic;
+  margin:21px 0 7px -32px;
+}
+
+#content h2:before {
+  content:"> ";
+}
+
+#content p {
+  margin:7px 0 0 0;
+}
+
+#content .subtext {
+	font-family:Cambria,serif;
+	font-style:italic;
+  margin:0 0 7px 0;
+}
+
+#content #footer {
+  margin:21px 0;
+}
+
+#copyright {
+  background-color:#f7f7f7;
+	border-top:solid 2px #05c;
+  font-size:85%;
+  font-style:italic;
+  padding:21px 0;
+  text-align:center;
 }
