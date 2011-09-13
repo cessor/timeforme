@@ -12,6 +12,7 @@
     </noscript>
     
     <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/knockout-1.2.1.js"></script>
     <script type="text/javascript">
       var ADAPT_CONFIG = {
         path: 'css/',
@@ -26,6 +27,72 @@
           '2540px           = 2520.css'
         ]
       };
+
+      var texts = [];
+      texts["de-DE"] = {
+        title: "Zeit. Für mich.",
+        subtitle: "Bevorzuge Qualität vor Quantität!",
+        breadth: "Breite",
+        breadthCaption: "Single- statt Multitasking",
+        breadthSubtext: "Fokussiere Dich auf eine Sache gleichzeitig.",
+        depth: "Tiefe",
+        depthCaption: "Intensität statt Oberflächlichkeit",
+        depthSubtext: "Erledige eine Aufgabe einmal intensiv, statt mehrfach oberflächlich.",
+        space: "Raum",
+        spaceCaption: "Tunnel statt Labyrinth",
+        spaceSubtext: "Sorge für ein unterbrechungsfreies Umfeld.",
+        time: "Zeit",
+        timeCaption: "Entschleunigung statt Stillstand",
+        timeSubtext: "Wenn Du unterbrochen wirst, minimiere die Dauer und das Ausmaß der Unterbrechung.",
+        footer: "Wende diese Punkte nicht nur auf Deinen Beruf, sondern auch auf Dein Leben an. Arbeite, um zu leben, und lebe nicht, um zu arbeiten.",
+        updated: "Aktualisiert am 13. September 2011"
+      };
+      texts["en-US"] = {
+        title: "Time. For me.",
+        subtitle: "Prefer quality over quantity!",
+        breadth: "Breadth",
+        breadthCaption: "Single- instead of multitasking",
+        breadthSubtext: "Focus on one thing at a time.",
+        depth: "Depth",
+        depthCaption: "Intensity instead of superficiality",
+        depthSubtext: "Perform a task once and intensively, instead of often and superficially.",
+        space: "Space",
+        spaceCaption: "Tunnel instead of maze",
+        spaceSubtext: "Ensure that your environment is free from interruptions.",
+        time: "Time",
+        timeCaption: "Deceleration instead of shutdown",
+        timeSubtext: "When interrupted, minimize the effect and duration of it.",
+        footer: "Apply these dimension to your whole life, not only your job. Work to live, don't live to work!",
+        updated: "Updated on September 13th, 2011"
+      };
+
+      var viewModel = {
+        title: ko.observable(),
+        subtitle: ko.observable(),
+        breadth: ko.observable(),
+        breadthCaption: ko.observable(),
+        breadthSubtext: ko.observable(),
+        depth: ko.observable(),
+        depthCaption: ko.observable(),
+        depthSubtext: ko.observable(),
+        space: ko.observable(),
+        spaceCaption: ko.observable(),
+        spaceSubtext: ko.observable(),
+        time: ko.observable(),
+        timeCaption: ko.observable(),
+        timeSubtext: ko.observable(),
+        footer: ko.observable(),
+        updated: ko.observable(),
+
+        translateTo: function(language) {
+          for(key in this) {
+            if(key === 'translateTo') {
+              continue;
+            }
+            this[key](texts[language][key]);             
+          }
+        }
+      };
     </script>
     <script type="text/javascript" src="js/adapt.min.js"></script> 
   </head>
@@ -33,52 +100,58 @@
   <body>
     <div class="container_12">	
       <div class="grid_12" id="menu">
-        <a href="en-us.html">en-US</a>
+        <a href="" data-bind="click: function() { viewModel.translateTo('de-DE'); }">de-DE</a> |
+        <a href="" data-bind="click: function() { viewModel.translateTo('en-US'); }">en-US</a>
       </div>
 
       <div class="grid_12" id="header">
-        <h1>Zeit. Für mich.</h1>
-        <span class="subtext">Bevorzuge Qualität vor Quantität!</span>
+        <h1 data-bind="text: title"></h1>
+        <span data-bind="text: subtitle" class="subtext"></span>
       </div>	
 
       <div class="grid_12" id="content">
         <div class="grid_6 alpha">
-          <h2>Breite</h2>
-          <p>Single- statt Multitasking</p>
-          <p class="subtext">Fokussiere Dich auf eine Sache gleichzeitig.</p>
+          <h2 data-bind="text: breadth"></h2>
+          <p data-bind="text: breadthCaption"></p>
+          <p data-bind="text: breadthSubtext" class="subtext"></p>
         </div>
         <div class="grid_6 omega">
-          <h2>Tiefe</h2> 
-          <p class="caption">Intensität statt Oberflächlichkeit</p>
-          <p class="subtext">Erledige eine Aufgabe einmal intensiv, statt mehrfach oberflächlich.</p>
+          <h2 data-bind="text: depth"></h2> 
+          <p data-bind="text: depthCaption"></p>
+          <p data-bind="text: depthSubtext" class="subtext"></p>
         </div>
 
         <div class="grid_6 alpha">
-          <h2>Raum</h2> 
-          <p class="caption">Tunnel statt Labyrinth</p>
-          <p class="subtext">Sorge für ein unterbrechungsfreies Umfeld.</p>
+          <h2 data-bind="text: space"></h2> 
+          <p data-bind="text: spaceCaption"></p>
+          <p data-bind="text: spaceSubtext" class="subtext"></p>
         </div>
         <div class="grid_6 omega">
-          <h2>Zeit</h2> 
-          <p class="caption">Entschleunigung statt Stillstand</p>
-          <p class="subtext">Wenn Du unterbrochen wirst, minimiere die Dauer und das Ausmaß der Unterbrechung.</p>
+          <h2 data-bind="text: time"></h2> 
+          <p data-bind="text: timeCaption"></p>
+          <p data-bind="text: timeSubtext" class="subtext"></p>
         </div>
 
         <div class="grid_12 alpha omega" id="footer">
-          <p> 
-            Wende diese Punkte nicht nur auf Deinen Beruf, sondern auch auf Dein Leben an. Arbeite, um zu leben, und lebe nicht, um zu arbeiten.
-          </p>
+          <p data-bind="text: footer"></p>
         </div>
       </div>
 
       <div class="grid_12" id="copyright">
         <p>
-          Aktualisiert am 13. September 2011 |
+          <span data-bind="text: updated"></span> |
           <a class="name" href="https://twitter.com/laurinst">Laurin Stoll</a> |
           <a class="name" href="http://www.goloroden.de">Golo Roden</a> |
           <a class="name" href="https://twitter.com/pro_cessor">Johannes Hofmeister</a>
         </p>
       </div>
     </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        viewModel.translateTo("en-US");
+        ko.applyBindings(viewModel);
+      });
+    </script>
   </body>
 </html>
