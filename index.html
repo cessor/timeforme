@@ -12,7 +12,10 @@
     </noscript>
     
     <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    
     <script type="text/javascript" src="js/knockout-1.2.1.js"></script>
+    
     <script type="text/javascript">
       var ADAPT_CONFIG = {
         path: 'css/',
@@ -91,6 +94,8 @@
             }
             this[key](texts[language][key]);             
           }
+          
+          $.cookie('lang', language, { expires: 365, path: '/' } )
         }
       };
     </script>
@@ -149,7 +154,7 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        viewModel.translateTo("en-US");
+        viewModel.translateTo($.cookie('lang') || 'en-US');
         ko.applyBindings(viewModel);
       });
     </script>
