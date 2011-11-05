@@ -1,0 +1,20 @@
+{
+  "name": "me.time-for.www",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.4.7",
+    "stylus": ">= 0.0.1",
+    "jade": ">= 0.0.1",
+    "node-force-domain": ">= 0.0.1"
+  },
+  "domains": [
+    "www.time-for.me",
+
+    "time-for.me"
+  ],
+  "subdomain": "time-for-me",
+  "scripts": {
+    "start": "app.js"
+  }
+}
